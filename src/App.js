@@ -131,32 +131,53 @@ function App() {
           </IconButton>
         </Box>
   
-        <Grid container spacing={2}>
-          <Grid item xs={8}>
-            <TaskList
-              tasks={tasks}
-              deleteTask={deleteTask}
-              updateTask={updateTask}
-              toggleDone={toggleDone}
-            />
-          </Grid>
-  
-          <Grid item xs={4}>
-            <Box textAlign="center">
-              <img
-                src={penguinImage}
-                alt="Penguin with Pad and Pen"
-                style={{
-                  width: "275px",
-                  height: "auto",
-                  borderRadius: "8px",
-                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-                }}
-              />
-              <Typography variant="body2" sx={{ color: "#1976d2", mt: 2 }} />
-            </Box>
-          </Grid>
-        </Grid>
+       <Grid
+  container
+  spacing={2}
+  sx={{
+    flexDirection: { xs: "column", md: "row" },
+    alignItems: "center",
+  }}
+>
+  <Grid item xs={12} md={8}>
+    <TaskList
+      tasks={tasks}
+      deleteTask={deleteTask}
+      updateTask={updateTask}
+      toggleDone={toggleDone}
+    />
+  </Grid>
+
+  <Grid item xs={12} md={4} sx={{ textAlign: "center" }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 2,
+        animation: "fadeIn 1s ease-in-out", // Onboarding animation
+      }}
+    >
+      <img
+        src={penguinImage}
+        alt="Penguin with Pad and Pen"
+        style={{
+          width: "100%",
+          maxWidth: "275px",
+          height: "auto",
+          borderRadius: "8px",
+          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+          transition: "transform 0.3s ease-in-out",
+        }}
+        className="penguin-hover"
+      />
+      <Typography variant="body2" sx={{ color: "#1976d2" }}>
+        Stay productive with your tasks!
+      </Typography>
+    </Box>
+  </Grid>
+</Grid>
+
       </Box>
   
       {/* Calendar Modal */}
